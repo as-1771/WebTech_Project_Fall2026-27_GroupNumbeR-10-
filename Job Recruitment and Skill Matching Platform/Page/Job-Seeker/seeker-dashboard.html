@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html" class="active"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="title-row">
+      <div class="page-title">
+        <p id="todayDate">Friday, 23 Oct</p>
+        <h1 id="welcomeText">Welcome back, Rahim</h1>
+      </div>
+      <a href="resume.html" class="btn btn-blue">+ Upload resume</a>
+    </div>
+
+    <div class="row">
+
+      <!-- best match box -->
+      <div class="blue-box best-match">
+        <div class="circle"></div>
+        <span class="badge">BEST MATCH TODAY</span>
+        <h2>UI Designer</h2>
+        <p>PixelCraft · Dhaka · ৳30k–45k</p>
+
+        <div class="score-line">
+          <div class="big-number">80%</div>
+          <div class="tags">
+            <span class="tag">Figma</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag-missing">+ Prototyping</span>
+          </div>
+        </div>
+
+        <a href="job-details.html" class="btn btn-white">View &amp; apply →</a>
+      </div>
+
+      <!-- 4 small stat boxes -->
+      <div class="stats">
+        <a href="applications.html" class="stat"><p>Applied</p><h3>12</h3></a>
+        <a href="applications.html" class="stat"><p>Shortlisted</p><h3 class="green-text">3</h3></a>
+        <a href="jobs.html" class="stat"><p>Avg match</p><h3>71%</h3></a>
+        <a href="seeker-profile.html" class="stat"><p>Skills to learn</p><h3 class="orange-text">4</h3></a>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <!-- recommended jobs -->
+      <div class="box big">
+        <div class="title-row">
+          <h2>Recommended for you</h2>
+          <a href="jobs.html">See all</a>
+        </div>
+
+        <div class="job-list">
+          <a href="job-details.html" class="job-row">
+            <div class="company-logo bg-blue">TN</div>
+            <div class="job-info">
+              <b>Frontend Developer</b>
+              <p class="grey">TechNova · Remote · ৳40k–60k</p>
+            </div>
+            <div class="ring" style="background: conic-gradient(#3B5BDB 72%, #E2E7F3 0)"><span>72</span></div>
+          </a>
+
+          <a href="job-details.html" class="job-row">
+            <div class="company-logo bg-green">DW</div>
+            <div class="job-info">
+              <b>Junior Data Analyst</b>
+              <p class="grey">DataWorks BD · Hybrid · ৳35k–50k</p>
+            </div>
+            <div class="ring" style="background: conic-gradient(#3B5BDB 66%, #E2E7F3 0)"><span>66</span></div>
+          </a>
+
+          <a href="job-details.html" class="job-row">
+            <div class="company-logo bg-pink">BS</div>
+            <div class="job-info">
+              <b>Junior Web Developer</b>
+              <p class="grey">Brainstation · Dhaka · Internship</p>
+            </div>
+            <div class="ring" style="background: conic-gradient(#3B5BDB 60%, #E2E7F3 0)"><span>60</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- skill tip -->
+      <div class="dark-box small">
+        <span class="small-title">SKILL TIP</span>
+        <p>Learning <b>SQL</b> lifts your match on <b>7 jobs</b>.</p>
+        <a href="seeker-profile.html" class="btn btn-yellow">Update my skills</a>
+
+        <div class="update">
+          <small>Latest update</small>
+          <p><b>Shortlisted · Frontend Developer</b></p>
+          <a href="applications.html">Track application →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

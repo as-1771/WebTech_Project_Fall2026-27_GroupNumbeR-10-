@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html" class="active"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="page-title">
+      <h1>My applications</h1>
+      <p>Click an application to see where it stands.</p>
+    </div>
+
+    <div class="row">
+
+      <!-- list of applications -->
+      <div class="box big">
+        <div class="job-list">
+
+          <button class="app-btn active" onclick="showApp(this, 'Frontend Developer', 'TechNova', 'Shortlisted')">
+            <div class="company-logo bg-blue">TN</div>
+            <div class="job-info">
+              <b>Frontend Developer</b>
+              <p class="grey">TechNova · applied 20 Oct</p>
+            </div>
+            <span class="label label-green">Shortlisted</span>
+          </button>
+
+          <button class="app-btn" onclick="showApp(this, 'UI Designer', 'PixelCraft', 'Interview')">
+            <div class="company-logo bg-orange">PC</div>
+            <div class="job-info">
+              <b>UI Designer</b>
+              <p class="grey">PixelCraft · applied 18 Oct</p>
+            </div>
+            <span class="label label-green">Interview</span>
+          </button>
+
+          <button class="app-btn" onclick="showApp(this, 'Junior Data Analyst', 'DataWorks BD', 'Under review')">
+            <div class="company-logo bg-green">DW</div>
+            <div class="job-info">
+              <b>Junior Data Analyst</b>
+              <p class="grey">DataWorks BD · applied 15 Oct</p>
+            </div>
+            <span class="label label-blue">Under review</span>
+          </button>
+
+          <button class="app-btn" onclick="showApp(this, 'Junior Web Developer', 'Brainstation', 'Applied')">
+            <div class="company-logo bg-pink">BS</div>
+            <div class="job-info">
+              <b>Junior Web Developer</b>
+              <p class="grey">Brainstation · applied 12 Oct</p>
+            </div>
+            <span class="label label-grey">Applied</span>
+          </button>
+
+          <button class="app-btn" onclick="showApp(this, 'QA Intern', 'Nirman Soft', 'Rejected')">
+            <div class="company-logo bg-teal">NS</div>
+            <div class="job-info">
+              <b>QA Intern</b>
+              <p class="grey">Nirman Soft · applied 2 Oct</p>
+            </div>
+            <span class="label label-red">Rejected</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- status timeline -->
+      <div class="box small">
+        <span class="small-title">STATUS TIMELINE</span>
+        <h2 id="appTitle">Frontend Developer</h2>
+        <p class="grey" id="appCompany">TechNova</p>
+
+        <!-- this part is rebuilt by JavaScript when you click an application -->
+        <div class="timeline" id="timeline">
+          <div class="stage done"><div class="dot">✓</div> Applied</div>
+          <div class="line done"></div>
+          <div class="stage done"><div class="dot">✓</div> Under review</div>
+          <div class="line done"></div>
+          <div class="stage now"><div class="dot"></div> Shortlisted</div>
+          <div class="line"></div>
+          <div class="stage"><div class="dot"></div> Interview</div>
+          <div class="line"></div>
+          <div class="stage"><div class="dot"></div> Selected</div>
+        </div>
+
+        <div class="buttons">
+          <a href="job-details.html" class="btn btn-white">View job</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

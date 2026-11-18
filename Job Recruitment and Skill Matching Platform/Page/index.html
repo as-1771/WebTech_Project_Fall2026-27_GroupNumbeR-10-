@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SkillMatch</title>
+    <link rel="stylesheet" href="../Design/Common.css">
+</head>
+<body>
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <h3>✔ skillmatch</h3>
+    </div>
+
+    <!-- Heading -->
+    <div class="header">
+        <h1>Who are you?</h1>
+        <p>Choose your user type to login or register.</p>
+    </div>
+
+    <!-- 4 user cards -->
+    <div class="cards">
+
+        <div class="card">
+            <h2>Job Seeker</h2>
+            <p>Find jobs that match your skills.</p>
+            <button class="btn blue" onclick="openPage('login.html', 'Job Seeker')">Login</button>
+            <button class="btn white" onclick="openPage('Job-Seeker/Register.html', 'Job Seeker')">Register</button>
+        </div>
+
+        <div class="card">
+            <h2>Recruiter</h2>
+            <p>Post jobs and find the right people.</p>
+            <button class="btn green" onclick="openPage('login.html', 'Recruiter')">Login</button>
+            <button class="btn white" onclick="openPage('Job-Reqruiter/Register.html', 'Recruiter')">Register</button>
+        </div>
+
+        <div class="card">
+            <h2>Customer Support</h2>
+            <p>Help job seekers and recruiters with their problems.</p>
+            <button class="btn orange" onclick="openPage('login.html', 'Customer Support')">Login</button>
+            <button class="btn white" onclick="openPage('Customer-Support/Register.html', 'Customer Support')">Register</button>
+        </div>
+
+        <div class="card">
+            <h2>Admin</h2>
+            <p>Manage the whole platform.</p>
+            <button class="btn dark" onclick="openPage('login.html', 'Admin')">Login</button>
+            <button class="btn white" onclick="openPage('Admin/Register.html', 'Admin')">Register</button>
+        </div>
+
+    </div>
+
+    <p class="footer">Web Technology Project · Team of 4</p>
+
+    <script src="../Logic/Common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Analyzer - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html" class="active"><span></span> Resume analyzer</a>
+      <a href="jobs.html"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="page-title">
+      <h1>Resume analyzer</h1>
+      <p>Upload a PDF. We find your skills — you confirm what's right.</p>
+    </div>
+
+    <div class="row">
+
+      <!-- upload area -->
+      <div class="box small upload-box">
+        <label for="resumeFile" class="drop-area">
+          <div class="upload-icon">↑</div>
+          <b>Drop your resume here</b>
+          <span class="grey">or click to browse · PDF up to 5 MB</span>
+        </label>
+        <input type="file" id="resumeFile" accept=".pdf" onchange="showFileName()">
+
+        <div class="file-row">
+          <div class="pdf-icon">PDF</div>
+          <div class="file-name">
+            <b id="fileName">Rahim_Uddin_CV.pdf</b>
+            <div class="bar"><div class="fill fill-green" style="width: 100%"></div></div>
+          </div>
+          <b class="green-text">Done</b>
+        </div>
+      </div>
+
+      <!-- skills found -->
+      <div class="box big">
+        <div class="title-row">
+          <h2>Detected skills</h2>
+          <span><b id="skillCount">7</b> selected</span>
+        </div>
+        <p class="grey">Click a skill to keep it or remove it.</p>
+        <br>
+
+        <div class="tags">
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ HTML</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ CSS</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ JavaScript</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ Bootstrap</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ Python</button>
+          <button class="skill-btn" onclick="toggleSkill(this)">+ C++</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ MySQL</button>
+          <button class="skill-btn on" onclick="toggleSkill(this)">✓ Teamwork</button>
+        </div>
+
+        <div class="found-text">
+          <span class="small-title">FOUND IN YOUR RESUME</span><br>
+          "Developed responsive websites using <mark>HTML</mark>, <mark>CSS</mark>,
+          <mark>JavaScript</mark> and <mark>Bootstrap</mark>."
+        </div>
+
+        <div class="buttons">
+          <a href="seeker-profile.html" class="btn btn-blue">Save to profile</a>
+          <a href="jobs.html" class="btn btn-white">See matching jobs →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html" class="active"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <!-- cover with name -->
+    <div class="cover">
+      <div class="cover-top"></div>
+      <div class="cover-bottom">
+        <div class="person">
+          <div class="avatar big-avatar" id="profileAvatar">RU</div>
+          <div>
+            <h1 id="profileName">Rahim Uddin</h1>
+            <p class="grey" id="profileInfo">Aspiring Web Developer · Dhaka</p>
+          </div>
+        </div>
+        <div class="strength">
+          Profile strength <b>82%</b>
+          <div class="bar"><div class="fill" style="width: 82%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <form onsubmit="saveProfile(event)">
+
+      <!-- Personal and Education side by side -->
+      <div class="frame">
+
+        <fieldset class="personal">
+          <legend>Personal information</legend>
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="fname">First name</label>
+              <input type="text" id="fname" value="Rahim">
+            </div>
+            <div class="input-group">
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" value="Uddin">
+            </div>
+            <div class="input-group wide">
+              <label for="email">Email</label>
+              <input type="email" id="email" value="rahim@example.com">
+            </div>
+            <div class="input-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" placeholder="+880 1XXX-XXXXXX">
+            </div>
+            <div class="input-group">
+              <label for="location">Preferred location</label>
+              <select id="location">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chattogram">Chattogram</option>
+                <option value="Khulna">Khulna</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Remote">Remote</option>
+              </select>
+            </div>
+            <div class="input-group wide">
+              <label for="about">About me</label>
+              <textarea id="about" rows="3">Final-year CSE student who enjoys building responsive websites.</textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="edu">
+          <legend>Education &amp; experience</legend>
+          <div class="form-grid">
+            <div class="input-group wide">
+              <label for="degree">Degree</label>
+              <select id="degree">
+                <option value="BSc in CSE">BSc in Computer Science &amp; Engineering</option>
+                <option value="BSc in SWE">BSc in Software Engineering</option>
+                <option value="BSc in EEE">BSc in Electrical &amp; Electronic Engineering</option>
+                <option value="BBA">BBA</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="input-group wide">
+              <label for="university">Institution</label>
+              <input type="text" id="university" value="North South University">
+            </div>
+            <div class="input-group">
+              <label for="year">Passing year</label>
+              <input type="number" id="year" value="2027">
+            </div>
+            <div class="input-group">
+              <label for="cgpa">CGPA</label>
+              <input type="text" id="cgpa" value="3.45">
+            </div>
+            <div class="input-group wide">
+              <label for="experience">Experience</label>
+              <select id="experience">
+                <option value="Fresher">Fresher (0 years)</option>
+                <option value="1 year">1 year</option>
+                <option value="2 years">2 years</option>
+                <option value="3+ years">3+ years</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <!-- skills -->
+      <fieldset class="skills-box">
+        <legend>Skills</legend>
+
+        <div class="tags" id="skillList">
+          <span class="skill">HTML <button type="button" onclick="removeSkill(this)">×</button></span>
+          <span class="skill">CSS <button type="button" onclick="removeSkill(this)">×</button></span>
+          <span class="skill">JavaScript <button type="button" onclick="removeSkill(this)">×</button></span>
+          <span class="skill">Python <button type="button" onclick="removeSkill(this)">×</button></span>
+          <span class="skill">C++ <button type="button" onclick="removeSkill(this)">×</button></span>
+        </div>
+
+        <div class="add-skill">
+          <input type="text" id="skillInput" placeholder="Add a skill, e.g. Git">
+          <button type="button" class="btn btn-black" onclick="addSkill()">Add skill</button>
+        </div>
+      </fieldset>
+
+      <div class="buttons">
+        <button type="submit" class="btn btn-blue">Save changes</button>
+        <button type="reset" class="btn btn-white">Reset</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

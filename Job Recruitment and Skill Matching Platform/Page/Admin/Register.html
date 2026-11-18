@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Design/Admin.css">
+    <script src="../../Logic/Admin.js" defer></script>
+    <title>Admin Registration - AI Recruitment Platform</title>
+</head>
+<body>
+    <div class="container" style="max-width: 800px; margin: 30px auto;">
+        <div class="header">
+            <h1> Admin Registration Portal </h1>
+        </div>
+
+        <form id="adminRegisterForm">
+            <fieldset>
+                <legend> Admin Information </legend>
+                <table>
+                    <tr>
+                        <td><label for="FullName">Full Name:</label></td>
+                        <td>
+                            <input type="text" name="FullName" id="FullName" placeholder="Enter full name">
+                            <p id="NameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="AdminEmail">Email:</label></td>
+                        <td>
+                            <input type="email" name="AdminEmail" id="AdminEmail" placeholder="Enter email">
+                            <p id="EmailError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Phone">Phone:</label></td>
+                        <td>
+                            <input type="text" name="Phone" id="Phone" placeholder="e.g. 01712345678">
+                            <p id="PhoneError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender:</label></td>
+                        <td>
+                            <input type="radio" name="gender" id="Male" value="Male"> Male
+                            <input type="radio" name="gender" id="Female" value="Female"> Female
+                            <input type="radio" name="gender" id="Other" value="Other"> Other
+                            <p id="GenderError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend> Account </legend>
+                <table>
+                    <tr>
+                        <td><label for="Username">Username:</label></td>
+                        <td>
+                            <input type="text" name="Username" id="Username" placeholder="4 - 15 characters">
+                            <p id="UserError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Password">Password:</label></td>
+                        <td>
+                            <input type="password" name="Password" id="Password" placeholder="Enter password">
+                            <div style="font-size: 13px; color: #475569; margin-top: 4px;">
+                                At least 8 characters with uppercase, lowercase, and a number
+                            </div>
+                            <div>
+                                <input type="checkbox" id="togglePass" onclick="togglePasswordVisibility('Password')" style="margin-left: 0;"> 
+                                <label for="togglePass">Show Password</label>
+                            </div>
+                            <p id="PassError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="ConfirmPassword">Confirm Password:</label></td>
+                        <td>
+                            <input type="password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Re-enter password">
+                            <div>
+                                <input type="checkbox" id="toggleConfirmPass" onclick="togglePasswordVisibility('ConfirmPassword')" style="margin-left: 0;"> 
+                                <label for="toggleConfirmPass">Show Confirm Password</label>
+                            </div>
+                            <p id="ConfirmPassError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <br>
+            <div style="text-align: center;">
+                <input type="submit" id="submit" value="Register">
+                <input type="reset" id="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

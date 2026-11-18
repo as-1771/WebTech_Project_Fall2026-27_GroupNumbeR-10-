@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Seeker Registration</title>
+    <link rel="stylesheet" href="../../Design/Common.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <h3>✔ skillmatch</h3>
+    </div>
+
+    <div class="page-title">
+        <span class="role">Job Seeker</span>
+        <h1>Create your account</h1>
+    </div>
+
+    <form onsubmit="return collect_data()">
+
+        <div class="frame">
+
+            <!-- Personal information -->
+            <fieldset class="section">
+                <legend> Personal information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="FirstName"> First name : </label> </td>
+                        <td>
+                            <input type="text" id="FirstName" placeholder="Enter Your First Name">
+                            <p id="FirstNameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="LastName"> Last name : </label> </td>
+                        <td>
+                            <input type="text" id="LastName" placeholder="Enter Your Last Name">
+                            <p id="LastNameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Email"> Email : </label> </td>
+                        <td>
+                            <input type="email" id="Email" placeholder="Enter Your Email">
+                            <p id="EmailError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Phone"> Phone : </label> </td>
+                        <td>
+                            <input type="text" id="Phone" placeholder="01XXXXXXXXX">
+                            <p id="PhoneError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Location"> Preferred location : </label> </td>
+                        <td>
+                            <select id="Location">
+                                <option value=""> Select Location </option>
+                                <option value="Dhaka"> Dhaka </option>
+                                <option value="Chattogram"> Chattogram </option>
+                                <option value="Khulna"> Khulna </option>
+                                <option value="Rajshahi"> Rajshahi </option>
+                                <option value="Sylhet"> Sylhet </option>
+                                <option value="Remote"> Remote </option>
+                            </select>
+                            <p id="LocationError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="About"> About me : </label> </td>
+                        <td>
+                            <textarea id="About" rows="4" style="resize: none;"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!-- Education and experience -->
+            <fieldset class="section">
+                <legend> Education &amp; experience </legend>
+                <table>
+                    <tr>
+                        <td> <label for="Degree"> Degree : </label> </td>
+                        <td>
+                            <select id="Degree">
+                                <option value=""> Select Degree </option>
+                                <option value="BSc in CSE"> BSc in Computer Science &amp; Engineering </option>
+                                <option value="BSc in SWE"> BSc in Software Engineering </option>
+                                <option value="BSc in EEE"> BSc in Electrical &amp; Electronic Engineering </option>
+                                <option value="BBA"> BBA </option>
+                                <option value="Other"> Other </option>
+                            </select>
+                            <p id="DegreeError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Institution"> Institution : </label> </td>
+                        <td>
+                            <input type="text" id="Institution" placeholder="Enter Your University">
+                            <p id="InstitutionError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="PassingYear"> Passing year : </label> </td>
+                        <td>
+                            <input type="number" id="PassingYear" placeholder="e.g. 2027">
+                            <p id="PassingYearError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="CGPA"> CGPA : </label> </td>
+                        <td>
+                            <input type="number" id="CGPA" step="0.01" placeholder="e.g. 3.45">
+                            <p id="CGPAError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Experience"> Experience : </label> </td>
+                        <td>
+                            <select id="Experience">
+                                <option value="Fresher"> Fresher (0 years) </option>
+                                <option value="1 year"> 1 year </option>
+                                <option value="2 years"> 2 years </option>
+                                <option value="3+ years"> 3+ years </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label> Skills : </label> </td>
+                        <td class="checks">
+                            <input type="checkbox" name="skill" value="HTML"> HTML
+                            <input type="checkbox" name="skill" value="CSS"> CSS
+                            <input type="checkbox" name="skill" value="JavaScript"> JavaScript
+                            <br>
+                            <input type="checkbox" name="skill" value="SQL"> SQL
+                            <input type="checkbox" name="skill" value="Git"> Git
+                            <input type="checkbox" name="skill" value="Python"> Python
+                            <p id="SkillError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+        </div>
+
+        <!-- Account -->
+        <fieldset class="section account">
+            <legend> Account </legend>
+            <table>
+                <tr>
+                    <td> <label for="Username"> Username : </label> </td>
+                    <td>
+                        <input type="text" id="Username" placeholder="Choose a Username">
+                        <p id="UsernameError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="Password"> Password : </label> </td>
+                    <td>
+                        <input type="password" id="Password" placeholder="At least 6 characters">
+                        <p id="PasswordError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="ConfirmPassword"> Confirm password : </label> </td>
+                    <td>
+                        <input type="password" id="ConfirmPassword" placeholder="Type Password Again">
+                        <p id="ConfirmPasswordError"></p>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit" class="btn blue">Register</button>
+            <button type="reset" class="btn white">Reset</button>
+
+            <p class="link-text">
+                Already have an account? <a href="../login.html">Login</a> ·
+                <a href="../index.html">← Back</a>
+            </p>
+        </fieldset>
+
+    </form>
+
+    <script src="../../Logic/Common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter AI Dashboard</title>
+    <link rel="stylesheet" href="../../Design/Job-Reqruiter.css">
+    <script src="../../Logic/Job-Reqruiter.js" defer></script>
+</head>
+<body>
+
+<div class="dashboard-card">
+
+    
+    <div class="top-header">
+        <div class="header-title">
+            <h2>Recruiter AI Dashboard</h2>
+            <p>Role: Senior Developer Positions</p>
+        </div>
+        <div class="nav-toggle">
+            <button class="tab-btn active" onclick="switchTab('applicants', this)">Applicants</button>
+            <button class="tab-btn" onclick="switchTab('ai', this)">AI Assistant</button>
+            <button class="tab-btn" onclick="switchTab('jobPost', this)">Job Post</button>
+        </div>
+    </div>
+
+    
+    <div id="tab-applicants" class="tab-content active">
+
+        
+        <div class="filter-bar">
+            <div class="filter-pills">
+                <button class="filter-pill active" onclick="filterCandidates('All', this)">All</button>
+                <button class="filter-pill" onclick="filterCandidates('Shortlisted', this)">Shortlisted</button>
+                <button class="filter-pill" onclick="filterCandidates('Pending', this)">Pending</button>
+                <button class="filter-pill" onclick="filterCandidates('Rejected', this)">Rejected</button>
+            </div>
+
+            <select id="sortSelect" class="sort-select" onchange="sortCandidates()">
+                <option value="highToLow">Highest Match &#9662;</option>
+                <option value="lowToHigh">Lowest Match &#9662;</option>
+            </select>
+        </div>
+
+        
+        <div class="candidate-list" id="candidateList">
+            
+        </div>
+
+        
+        <div class="detail-panel" id="detailPanel">
+            
+        </div>
+
+        
+        <div class="chart-card">
+            <div class="chart-title">Candidate Match Scores</div>
+            <div class="chart-grid">
+                <div class="y-axis">
+                    <span>100</span>
+                    <span>50</span>
+                    <span>0</span>
+                </div>
+                <div class="chart-body">
+                    <div class="chart-bars" id="chartBars">
+                        
+                    </div>
+                    <div class="x-axis" id="xAxis">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <div id="tab-ai" class="tab-content">
+        <div class="ai-card">
+            <h3>AI Job Description Optimizer</h3>
+            <p class="subtitle">Generate automated skill criteria or adjust candidate weighting thresholds.</p>
+
+            <form onsubmit="applyAICriteria(event)">
+                <div class="form-group">
+                    <label for="positionTitle">Position Title</label>
+                    <input type="text" id="positionTitle" class="form-input" value="Senior React / Node.js Lead">
+                </div>
+
+                <div class="form-group">
+                    <label for="requiredSkills">Required Skills (Comma Separated)</label>
+                    <textarea id="requiredSkills" class="form-textarea">React, Node.js, Express, MongoDB, Docker, AWS</textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Apply Criteria & Recalculate</button>
+            </form>
+        </div>
+    </div>
+
+    
+    <div id="tab-jobPost" class="tab-content">
+        <div class="job-post-card">
+            <h3>Create & Manage Job Vacancies</h3>
+            <p class="subtitle">Post new job openings, specify skill requirements, locations, salary, and active vacancies.</p>
+
+            <form id="jobPostForm" onsubmit="handleJobSubmit(event)" novalidate>
+                <div class="form-group">
+                    <label for="jobTitleInput">Job Title</label>
+                    <input type="text" id="jobTitleInput" class="form-input" placeholder="e.g. Full Stack Engineer">
+                    <div id="jobTitleError" class="error-text"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobLocationInput">Location</label>
+                        <input type="text" id="jobLocationInput" class="form-input" placeholder="e.g. Remote / Dhaka">
+                        <div id="jobLocationError" class="error-text"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobSalaryInput">Salary Range</label>
+                        <input type="text" id="jobSalaryInput" class="form-input" placeholder="e.g. $1,000 - $1,500">
+                        <div id="jobSalaryError" class="error-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobVacancyInput">Vacancy Count</label>
+                        <input type="number" id="jobVacancyInput" class="form-input" placeholder="e.g. 2" min="1">
+                        <div id="jobVacancyError" class="error-text"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobExperienceInput">Experience Required</label>
+                        <input type="text" id="jobExperienceInput" class="form-input" placeholder="e.g. 2 Years or N/A">
+                        <div id="jobExperienceError" class="error-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTypeInput">Job Type</label>
+                        <select id="jobTypeInput" class="form-select">
+                            <option value="">Select Job Type</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Full-Time Job">Full-Time Job</option>
+                            <option value="Part-Time Job">Part-Time Job</option>
+                        </select>
+                        <div id="jobTypeError" class="error-text"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobDeadlineInput">Deadline (Calendar)</label>
+                        <input type="date" id="jobDeadlineInput" class="form-input">
+                        <div id="jobDeadlineError" class="error-text"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobSkillsInput">Required Skills (Comma Separated)</label>
+                    <input type="text" id="jobSkillsInput" class="form-input" placeholder="e.g. React, Node.js, Docker">
+                    <div id="jobSkillsError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobDescInput">Job Description / Info</label>
+                    <textarea id="jobDescInput" class="form-textarea" placeholder="Enter job summary and requirements to show customers..."></textarea>
+                    <div id="jobDescError" class="error-text"></div>
+                </div>
+
+                <button type="submit" id="jobSubmitBtn" class="btn-submit">Post Job Vacancy</button>
+            </form>
+        </div>
+
+        
+        <div class="job-post-card">
+            <h3>Active Job Postings</h3>
+            <p class="subtitle">Manage, edit, or delete your posted job vacancies.</p>
+            <div id="postedJobsList">
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

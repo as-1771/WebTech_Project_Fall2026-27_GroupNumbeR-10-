@@ -1,0 +1,1173 @@
+/* =====================================================
+   SkillMatch - Job Seeker pages
+   Main colours used:
+   dark navy  #0F172A   (sidebar, dark boxes)
+   blue       #3B5BDB   (buttons, highlights)
+   light grey #F1F3F9   (page background)
+   ===================================================== */
+
+
+/* ---------- 1. Basic setup ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #F1F3F9;
+  color: #0F172A;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  font-size: 15px;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+a {
+  color: #3B5BDB;
+}
+
+
+/* ---------- 2. Page layout (sidebar + main) ---------- */
+
+.page {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* ---------- 3. Sidebar ---------- */
+
+.sidebar {
+  width: 240px;
+  background: #0F172A;
+  border-radius: 24px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.logo-text {
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: #CBD5E1;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #1E293B;
+  color: white;
+}
+
+.count {
+  margin-left: auto;
+  background: #4C6EF5;
+  color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.user {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #1E293B;
+  border-radius: 16px;
+  color: white;
+  font-size: 14px;
+}
+
+.user a {
+  color: #A5B4FC;
+  font-size: 12px;
+}
+
+
+/* ---------- 4. Common boxes and text ---------- */
+
+/* white card */
+.box {
+  background: white;
+  border-radius: 28px;
+  padding: 26px;
+}
+
+/* dark navy card */
+.dark-box {
+  background: #0F172A;
+  color: white;
+  border-radius: 28px;
+  padding: 26px;
+}
+
+/* blue card */
+.blue-box {
+  background: #3B5BDB;
+  color: white;
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.box h2,
+.dark-box h2 {
+  font-size: 19px;
+}
+
+/* top of each page */
+.page-title h1 {
+  font-size: 30px;
+}
+
+.page-title p {
+  color: #475569;
+  margin-top: 4px;
+}
+
+/* title on left, button on right */
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* boxes side by side */
+.row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.big {
+  flex: 2;
+}
+
+.small {
+  flex: 1;
+}
+
+/* small grey text */
+.grey {
+  color: #475569;
+  font-size: 14px;
+}
+
+/* small uppercase heading */
+.small-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 1px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFD8A8;
+  color: #7A3E00;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ---------- 5. Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background: #3B5BDB;
+  color: white;
+}
+
+.btn-white {
+  background: white;
+  color: #0F172A;
+  border: 1px solid #DDE2EC;
+}
+
+.btn-black {
+  background: #0F172A;
+  color: white;
+}
+
+.btn-yellow {
+  background: #FFC078;
+  color: #0F172A;
+}
+
+.btn-green {
+  background: #2B8A3E;
+  color: white;
+}
+
+.btn-line {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
+/* ---------- 6. Skill tags and status labels ---------- */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #EDF2FF;
+  color: #2541B2;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* grey tag used on job cards */
+.tag-grey {
+  background: #F1F3F9;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* dashed tag for a missing skill */
+.tag-missing {
+  border: 1.5px dashed #F59F00;
+  color: #9A3412;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* status labels */
+.label {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.label-green  { background: #EBFBEE; color: #2B6A36; }
+.label-blue   { background: #EDF2FF; color: #2541B2; }
+.label-orange { background: #FFF4E6; color: #9A3412; }
+.label-red    { background: #FFE3E3; color: #A51D1D; }
+.label-grey   { background: #F1F3F9; color: #334155; }
+
+
+/* ---------- 7. Progress bar ---------- */
+
+.bar {
+  height: 8px;
+  background: #E2E7F3;
+  border-radius: 4px;
+  margin-top: 6px;
+}
+
+/* set the width in HTML, e.g. style="width: 80%" */
+.fill {
+  height: 8px;
+  background: #3B5BDB;
+  border-radius: 4px;
+}
+
+.fill-orange {
+  background: #E8590C;
+}
+
+.fill-green {
+  background: #2B8A3E;
+}
+
+
+/* ---------- 8. Company logo squares ---------- */
+
+.company-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-blue   { background: #3B5BDB; }
+.bg-green  { background: #2B8A3E; }
+.bg-pink   { background: #C2255C; }
+.bg-orange { background: #E8590C; }
+.bg-purple { background: #6741D9; }
+.bg-teal   { background: #0B7285; }
+
+
+/* ---------- 9. Form inputs ---------- */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+input,
+select,
+textarea {
+  padding: 12px 14px;
+  border: 1px solid #DDE2EC;
+  border-radius: 12px;
+  background: #F8F9FC;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   PAGE: Dashboard
+   ===================================================== */
+
+.best-match {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+/* big see-through circle in the corner */
+.circle {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 40px solid rgba(255, 255, 255, 0.08);
+}
+
+.best-match h2 {
+  font-size: 32px;
+  margin-top: 16px;
+}
+
+.best-match p {
+  color: #DBE4FF;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.16);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.score-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.big-number {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.best-match .tag {
+  background: white;
+}
+
+.best-match .tag-missing {
+  border-color: white;
+  color: white;
+}
+
+/* 4 stat boxes in a 2 x 2 grid */
+.stats {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  color: #0F172A;
+  text-decoration: none;
+}
+
+.stat p {
+  font-size: 13px;
+  color: #475569;
+}
+
+.stat h3 {
+  font-size: 34px;
+  margin-top: 18px;
+}
+
+.green-text  { color: #2B8A3E; }
+.orange-text { color: #C2410C; }
+
+/* recommended job rows */
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.job-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #F8F9FC;
+  color: #0F172A;
+  text-decoration: none;
+}
+
+.job-row:hover {
+  background: #EDF2FF;
+}
+
+.job-info {
+  flex: 1;
+}
+
+/* round match score (colour set in HTML with conic-gradient) */
+.ring {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring span {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #F8F9FC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.dark-box .small-title {
+  color: #FFC078;
+}
+
+.dark-box p {
+  margin: 10px 0 16px;
+  font-size: 17px;
+}
+
+.update {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #1E293B;
+}
+
+.update a {
+  color: #A5B4FC;
+}
+
+
+/* =====================================================
+   PAGE: My Profile
+   ===================================================== */
+
+.cover {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.cover-top {
+  height: 110px;
+  background: #3B5BDB;
+}
+
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 28px 26px;
+}
+
+.person {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.person h1 {
+  font-size: 26px;
+}
+
+.big-avatar {
+  width: 104px;
+  height: 104px;
+  margin-top: -52px;
+  border: 5px solid white;
+  font-size: 34px;
+}
+
+.strength {
+  width: 180px;
+  font-size: 13px;
+}
+
+/* Personal + Education side by side */
+.frame {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.personal,
+.edu {
+  flex: 1;
+}
+
+/* fieldset styled like a white box */
+fieldset {
+  border: none;
+  margin: 0;
+  background: white;
+  border-radius: 28px;
+  padding: 26px;
+}
+
+legend {
+  float: left;          /* keeps the title inside the box */
+  width: 100%;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+/* 2 inputs per line */
+.form-grid {
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* input that takes the full line */
+.wide {
+  grid-column: span 2;
+}
+
+.skills-box {
+  margin-top: 16px;
+}
+
+.skills-box .tags {
+  clear: both;
+}
+
+/* skill tag with a remove (x) button */
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #EDF2FF;
+  color: #2541B2;
+  padding: 4px 4px 4px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skill button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #2541B2;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-skill {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  width: 500px;
+}
+
+.add-skill input {
+  flex: 1;
+}
+
+
+/* =====================================================
+   PAGE: Resume Analyzer
+   ===================================================== */
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* dashed area to choose a file */
+.drop-area {
+  min-height: 240px;
+  border: 2px dashed #A5B4FC;
+  border-radius: 22px;
+  background: #F5F7FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px;
+  cursor: pointer;
+}
+
+.upload-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #3B5BDB;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hide the real file input, the label opens it */
+#resumeFile {
+  display: none;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #F8F9FC;
+  font-size: 14px;
+}
+
+.file-name {
+  flex: 1;
+  word-break: break-all;
+}
+
+.pdf-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #FFE3E3;
+  color: #C92A2A;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* skill buttons that turn on / off */
+.skill-btn {
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 1.5px dashed #94A3B8;
+  background: white;
+  color: #475569;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.skill-btn.on {
+  border: 1.5px solid #3B5BDB;
+  background: #3B5BDB;
+  color: white;
+  text-decoration: none;
+}
+
+.found-text {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #F8F9FC;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.found-text mark {
+  background: #DBE4FF;
+  color: #2541B2;
+  padding: 0 3px;
+}
+
+
+/* =====================================================
+   PAGE: Find Jobs  (also used by Saved Jobs)
+   ===================================================== */
+
+.search-box h1 {
+  font-size: 30px;
+}
+
+.search-box p {
+  color: #CBD5E1;
+  margin: 4px 0 18px;
+}
+
+.search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-row input {
+  flex: 1;
+}
+
+.search-row input,
+.search-row select {
+  border: none;
+  border-radius: 30px;
+  padding: 15px 18px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.filter-btn {
+  padding: 10px 16px;
+  border-radius: 30px;
+  border: 1.5px solid #475569;
+  background: transparent;
+  color: #E2E8F0;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-btn.active {
+  background: white;
+  border-color: white;
+  color: #0F172A;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+/* job cards: 3 per line */
+.job-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.job-card {
+  background: white;
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #0F172A;
+  text-decoration: none;
+}
+
+.job-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.job-card h3 {
+  font-size: 18px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #EEF0F5;
+  font-size: 14px;
+}
+
+.save-icon {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #EDF2FF;
+  color: #3B5BDB;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   PAGE: Job Details
+   ===================================================== */
+
+.back {
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 8px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.job-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.job-head .company-logo {
+  width: 64px;
+  height: 64px;
+  font-size: 20px;
+}
+
+.job-head h1 {
+  font-size: 28px;
+}
+
+/* salary / type / experience / deadline */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.fact {
+  background: #F8F9FC;
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.fact p {
+  font-size: 12px;
+  color: #475569;
+}
+
+.box h3 {
+  font-size: 18px;
+  margin: 24px 0 8px;
+}
+
+.box ul {
+  line-height: 1.8;
+  color: #334155;
+}
+
+/* skill comparison rows */
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.have {
+  background: #EBFBEE;
+  color: #2B6A36;
+}
+
+.need {
+  border: 1.5px dashed #F59F00;
+  color: #9A3412;
+}
+
+.need a {
+  color: #9A3412;
+}
+
+.score-box {
+  text-align: center;
+}
+
+.score-box .small-title {
+  color: #DBE4FF;
+}
+
+.big-ring {
+  width: 160px;
+  height: 160px;
+  margin: 16px auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.big-ring span {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #3B5BDB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.score-item {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.score-item div:first-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.note {
+  font-size: 12px;
+  color: #475569;
+  margin-top: 16px;
+}
+
+
+/* =====================================================
+   PAGE: My Applications
+   ===================================================== */
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 18px;
+  border: 2px solid transparent;
+  background: #F8F9FC;
+  font-family: inherit;
+  color: #0F172A;
+  text-align: left;
+  cursor: pointer;
+}
+
+.app-btn.active {
+  border-color: #3B5BDB;
+  background: #F5F7FF;
+}
+
+/* status timeline */
+.timeline {
+  margin-top: 22px;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #64748B;
+}
+
+.dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  background: white;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* small line between two dots */
+.line {
+  width: 2px;
+  height: 24px;
+  background: #E2E7F3;
+  margin-left: 12px;
+}
+
+.line.done {
+  background: #3B5BDB;
+}
+
+.stage.done {
+  color: #0F172A;
+  font-weight: 600;
+}
+
+.stage.done .dot {
+  border: none;
+  background: #3B5BDB;
+}
+
+.stage.now {
+  color: #3B5BDB;
+  font-weight: 800;
+}
+
+.stage.now .dot {
+  border: 4px solid #3B5BDB;
+}
+
+.stage.rejected {
+  color: #A51D1D;
+  font-weight: 800;
+}
+
+.stage.rejected .dot {
+  border: none;
+  background: #A51D1D;
+}
+
+
+/* =====================================================
+   PAGE: Saved Jobs
+   ===================================================== */
+
+.urgent {
+  color: #C2410C;
+  font-weight: 700;
+}
+
+.empty {
+  text-align: center;
+  padding: 56px;
+  display: none;   /* shown by JavaScript when the list is empty */
+}
+
+
+/* =====================================================
+   Mobile phones
+   ===================================================== */
+
+@media (max-width: 800px) {
+  .page,
+  .row,
+  .frame,
+  .search-row,
+  .cover-bottom {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .add-skill,
+  .strength {
+    width: 100%;
+  }
+
+  .job-grid,
+  .form-grid,
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .wide {
+    grid-column: span 1;
+  }
+
+  .row > * {
+    width: 100%;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+}

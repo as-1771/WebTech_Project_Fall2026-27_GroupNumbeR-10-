@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Support Registration</title>
+    <link rel="stylesheet" href="../../Design/Common.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <h3>✔ skillmatch</h3>
+    </div>
+
+    <div class="page-title">
+        <span class="role">Customer Support</span>
+        <h1>Create your account</h1>
+    </div>
+
+    <form onsubmit="return collect_support()">
+
+        <div class="frame">
+
+            <!-- Personal information -->
+            <fieldset class="section">
+                <legend> Personal information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="FullName"> Full name : </label> </td>
+                        <td>
+                            <input type="text" id="FullName" placeholder="Enter Your Full Name">
+                            <p id="FullNameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Email"> Email : </label> </td>
+                        <td>
+                            <input type="email" id="Email" placeholder="Enter Your Email">
+                            <p id="EmailError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Phone"> Phone : </label> </td>
+                        <td>
+                            <input type="text" id="Phone" placeholder="01XXXXXXXXX">
+                            <p id="PhoneError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label> Gender : </label> </td>
+                        <td class="checks">
+                            <input type="radio" name="gender" value="Male"> Male
+                            <input type="radio" name="gender" value="Female"> Female
+                            <p id="GenderError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!-- Professional information -->
+            <fieldset class="section">
+                <legend> Professional information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="Expertise"> Expertise : </label> </td>
+                        <td>
+                            <select id="Expertise">
+                                <option value=""> Select Expertise </option>
+                                <option value="Career Guidance"> Career Guidance </option>
+                                <option value="Web Development"> Web Development </option>
+                                <option value="Data Science"> Data Science </option>
+                                <option value="HR &amp; Recruitment"> HR &amp; Recruitment </option>
+                            </select>
+                            <p id="ExpertiseError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Qualification"> Qualification : </label> </td>
+                        <td>
+                            <select id="Qualification">
+                                <option value=""> Select Qualification </option>
+                                <option value="Bachelor"> Bachelor </option>
+                                <option value="Master"> Master </option>
+                                <option value="PhD"> PhD </option>
+                            </select>
+                            <p id="QualificationError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Years"> Years of experience : </label> </td>
+                        <td>
+                            <input type="number" id="Years" placeholder="e.g. 5">
+                            <p id="YearsError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Organization"> Organization : </label> </td>
+                        <td>
+                            <input type="text" id="Organization" placeholder="Current workplace (optional)">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+        </div>
+
+        <!-- Account -->
+        <fieldset class="section account">
+            <legend> Account </legend>
+            <table>
+                <tr>
+                    <td> <label for="Username"> Username : </label> </td>
+                    <td>
+                        <input type="text" id="Username" placeholder="Choose a Username">
+                        <p id="UsernameError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="Password"> Password : </label> </td>
+                    <td>
+                        <input type="password" id="Password" placeholder="At least 6 characters">
+                        <p id="PasswordError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="ConfirmPassword"> Confirm password : </label> </td>
+                    <td>
+                        <input type="password" id="ConfirmPassword" placeholder="Type Password Again">
+                        <p id="ConfirmPasswordError"></p>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit" class="btn orange">Register</button>
+            <button type="reset" class="btn white">Reset</button>
+
+            <p class="link-text">
+                Already have an account? <a href="../login.html">Login</a> ·
+                <a href="../index.html">← Back</a>
+            </p>
+        </fieldset>
+
+    </form>
+
+    <script src="../../Logic/Common.js"></script>
+
+</body>
+</html>

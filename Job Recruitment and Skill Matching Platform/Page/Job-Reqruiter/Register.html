@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recruiter Registration</title>
+    <link rel="stylesheet" href="../../Design/Common.css">
+</head>
+<body>
+
+    <div class="topbar">
+        <h3>✔ skillmatch</h3>
+    </div>
+
+    <div class="page-title">
+        <span class="role">Recruiter</span>
+        <h1>Create your account</h1>
+    </div>
+
+    <form onsubmit="return collect_recruiter()">
+
+        <div class="frame">
+
+            <!-- Personal information -->
+            <fieldset class="section">
+                <legend> Personal information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="FullName"> Full name : </label> </td>
+                        <td>
+                            <input type="text" id="FullName" placeholder="Enter Your Full Name">
+                            <p id="FullNameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Email"> Email : </label> </td>
+                        <td>
+                            <input type="email" id="Email" placeholder="Enter Your Email">
+                            <p id="EmailError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Phone"> Phone : </label> </td>
+                        <td>
+                            <input type="text" id="Phone" placeholder="01XXXXXXXXX">
+                            <p id="PhoneError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Designation"> Designation : </label> </td>
+                        <td>
+                            <input type="text" id="Designation" placeholder="e.g. HR Manager">
+                            <p id="DesignationError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <!-- Company information -->
+            <fieldset class="section">
+                <legend> Company information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="CompanyName"> Company name : </label> </td>
+                        <td>
+                            <input type="text" id="CompanyName" placeholder="Enter Company Name">
+                            <p id="CompanyNameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="CompanyType"> Company type : </label> </td>
+                        <td>
+                            <select id="CompanyType">
+                                <option value=""> Select Type </option>
+                                <option value="Software"> Software </option>
+                                <option value="Bank"> Bank </option>
+                                <option value="Telecom"> Telecom </option>
+                                <option value="NGO"> NGO </option>
+                                <option value="Other"> Other </option>
+                            </select>
+                            <p id="CompanyTypeError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="CompanyLocation"> Location : </label> </td>
+                        <td>
+                            <select id="CompanyLocation">
+                                <option value=""> Select Location </option>
+                                <option value="Dhaka"> Dhaka </option>
+                                <option value="Chattogram"> Chattogram </option>
+                                <option value="Khulna"> Khulna </option>
+                                <option value="Sylhet"> Sylhet </option>
+                            </select>
+                            <p id="CompanyLocationError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Website"> Website : </label> </td>
+                        <td>
+                            <input type="text" id="Website" placeholder="www.company.com (optional)">
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+        </div>
+
+        <!-- Account -->
+        <fieldset class="section account">
+            <legend> Account </legend>
+            <table>
+                <tr>
+                    <td> <label for="Username"> Username : </label> </td>
+                    <td>
+                        <input type="text" id="Username" placeholder="Choose a Username">
+                        <p id="UsernameError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="Password"> Password : </label> </td>
+                    <td>
+                        <input type="password" id="Password" placeholder="At least 6 characters">
+                        <p id="PasswordError"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="ConfirmPassword"> Confirm password : </label> </td>
+                    <td>
+                        <input type="password" id="ConfirmPassword" placeholder="Type Password Again">
+                        <p id="ConfirmPasswordError"></p>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit" class="btn green">Register</button>
+            <button type="reset" class="btn white">Reset</button>
+
+            <p class="link-text">
+                Already have an account? <a href="../login.html">Login</a> ·
+                <a href="../index.html">← Back</a>
+            </p>
+        </fieldset>
+
+    </form>
+
+    <script src="../../Logic/Common.js"></script>
+
+</body>
+</html>

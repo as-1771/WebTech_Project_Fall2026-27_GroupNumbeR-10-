@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Jobs - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html" class="active"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <!-- search area -->
+    <div class="dark-box search-box">
+      <h1>Find your next job</h1>
+      <p>Sorted by how well each job matches your skills.</p>
+
+      <div class="search-row">
+        <input type="text" id="searchBox" placeholder="Search title, company or skill..." onkeyup="filterJobs()">
+        <select>
+          <option>Any location</option>
+          <option>Dhaka</option>
+          <option>Chattogram</option>
+        </select>
+        <select>
+          <option>Any salary</option>
+          <option>৳30k+</option>
+          <option>৳50k+</option>
+        </select>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active" onclick="pickType(this, 'All')">All</button>
+        <button class="filter-btn" onclick="pickType(this, 'Remote')">Remote</button>
+        <button class="filter-btn" onclick="pickType(this, 'Hybrid')">Hybrid</button>
+        <button class="filter-btn" onclick="pickType(this, 'On-site')">On-site</button>
+      </div>
+    </div>
+
+    <div class="result-row">
+      <b id="jobCount">6 jobs found</b>
+      <span class="grey">Sort: Best match</span>
+    </div>
+
+    <!-- job cards -->
+    <div class="job-grid">
+
+      <a href="job-details.html" class="job-card" data-type="On-site">
+        <div class="card-top">
+          <div class="company-logo bg-orange">PC</div>
+          <span class="label label-green">80% match</span>
+        </div>
+        <div>
+          <h3>UI Designer</h3>
+          <p class="grey">PixelCraft · On-site</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">Figma</span><span class="tag-grey">HTML</span><span class="tag-grey">CSS</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳30k–45k</b>
+          <span class="grey">1d ago</span>
+        </div>
+      </a>
+
+      <a href="job-details.html" class="job-card" data-type="Remote">
+        <div class="card-top">
+          <div class="company-logo bg-blue">TN</div>
+          <span class="label label-green">72% match</span>
+        </div>
+        <div>
+          <h3>Frontend Developer</h3>
+          <p class="grey">TechNova · Remote</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">React</span><span class="tag-grey">JavaScript</span><span class="tag-grey">Git</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳40k–60k</b>
+          <span class="grey">2d ago</span>
+        </div>
+      </a>
+
+      <a href="job-details.html" class="job-card" data-type="Hybrid">
+        <div class="card-top">
+          <div class="company-logo bg-green">DW</div>
+          <span class="label label-blue">66% match</span>
+        </div>
+        <div>
+          <h3>Junior Data Analyst</h3>
+          <p class="grey">DataWorks BD · Hybrid</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">SQL</span><span class="tag-grey">Excel</span><span class="tag-grey">Python</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳35k–50k</b>
+          <span class="grey">3d ago</span>
+        </div>
+      </a>
+
+      <a href="job-details.html" class="job-card" data-type="On-site">
+        <div class="card-top">
+          <div class="company-logo bg-pink">BS</div>
+          <span class="label label-blue">60% match</span>
+        </div>
+        <div>
+          <h3>Junior Web Developer</h3>
+          <p class="grey">Brainstation · On-site</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">HTML</span><span class="tag-grey">CSS</span><span class="tag-grey">SQL</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳25k–35k</b>
+          <span class="grey">2d ago</span>
+        </div>
+      </a>
+
+      <a href="job-details.html" class="job-card" data-type="Remote">
+        <div class="card-top">
+          <div class="company-logo bg-purple">SL</div>
+          <span class="label label-orange">55% match</span>
+        </div>
+        <div>
+          <h3>WordPress Developer</h3>
+          <p class="grey">SiteLab · Remote</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">PHP</span><span class="tag-grey">CSS</span><span class="tag-grey">WordPress</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳30k–40k</b>
+          <span class="grey">5d ago</span>
+        </div>
+      </a>
+
+      <a href="job-details.html" class="job-card" data-type="Hybrid">
+        <div class="card-top">
+          <div class="company-logo bg-teal">NS</div>
+          <span class="label label-orange">48% match</span>
+        </div>
+        <div>
+          <h3>QA Intern</h3>
+          <p class="grey">Nirman Soft · Hybrid</p>
+        </div>
+        <div class="tags">
+          <span class="tag-grey">Testing</span><span class="tag-grey">SQL</span><span class="tag-grey">Jira</span>
+        </div>
+        <div class="card-bottom">
+          <b>৳15k–20k</b>
+          <span class="grey">1w ago</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

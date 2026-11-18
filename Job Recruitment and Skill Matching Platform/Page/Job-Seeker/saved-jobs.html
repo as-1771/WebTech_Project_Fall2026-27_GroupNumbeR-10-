@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Jobs - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html"><span></span> Find jobs</a>
+      <a href="saved-jobs.html" class="active"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="title-row">
+      <div class="page-title">
+        <h1>Saved jobs</h1>
+        <p id="savedCount">4 saved · sorted by match</p>
+      </div>
+      <a href="jobs.html" class="btn btn-white">Browse more jobs</a>
+    </div>
+
+    <!-- shown only when no jobs are left -->
+    <div class="box empty" id="emptyBox">
+      <h2>No saved jobs yet</h2>
+      <p class="grey">Click Save on any job to keep it here.</p>
+      <br>
+      <a href="jobs.html" class="btn btn-blue">Find jobs</a>
+    </div>
+
+    <div class="job-grid">
+
+      <div class="job-card saved-card">
+        <div class="card-top">
+          <div class="company-logo bg-orange">PC</div>
+          <button class="save-icon" onclick="removeSaved(this)" title="Remove">★</button>
+        </div>
+        <div>
+          <h3>UI Designer</h3>
+          <p class="grey">PixelCraft · On-site</p>
+        </div>
+        <div class="card-bottom">
+          <span>৳30k–45k</span>
+          <span class="urgent">Closes in 3 days</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 80%"></div></div>
+        <div class="card-top">
+          <b style="color: #3B5BDB">80% match</b>
+          <a href="job-details.html" class="btn btn-black">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card saved-card">
+        <div class="card-top">
+          <div class="company-logo bg-blue">TN</div>
+          <button class="save-icon" onclick="removeSaved(this)" title="Remove">★</button>
+        </div>
+        <div>
+          <h3>Frontend Developer</h3>
+          <p class="grey">TechNova · Remote</p>
+        </div>
+        <div class="card-bottom">
+          <span>৳40k–60k</span>
+          <span class="grey">Closes 10 Nov</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 72%"></div></div>
+        <div class="card-top">
+          <b style="color: #3B5BDB">72% match</b>
+          <a href="job-details.html" class="btn btn-black">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card saved-card">
+        <div class="card-top">
+          <div class="company-logo bg-green">DW</div>
+          <button class="save-icon" onclick="removeSaved(this)" title="Remove">★</button>
+        </div>
+        <div>
+          <h3>Junior Data Analyst</h3>
+          <p class="grey">DataWorks BD · Hybrid</p>
+        </div>
+        <div class="card-bottom">
+          <span>৳35k–50k</span>
+          <span class="grey">Closes 14 Nov</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 66%"></div></div>
+        <div class="card-top">
+          <b style="color: #3B5BDB">66% match</b>
+          <a href="job-details.html" class="btn btn-black">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card saved-card">
+        <div class="card-top">
+          <div class="company-logo bg-purple">SL</div>
+          <button class="save-icon" onclick="removeSaved(this)" title="Remove">★</button>
+        </div>
+        <div>
+          <h3>WordPress Developer</h3>
+          <p class="grey">SiteLab · Remote</p>
+        </div>
+        <div class="card-bottom">
+          <span>৳30k–40k</span>
+          <span class="urgent">Closes tomorrow</span>
+        </div>
+        <div class="bar"><div class="fill" style="width: 55%"></div></div>
+        <div class="card-top">
+          <b style="color: #3B5BDB">55% match</b>
+          <a href="job-details.html" class="btn btn-black">Apply</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details - SkillMatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../Design/Job-Seeker.css">
+</head>
+<body onload="loadSeekerPage()">
+
+<div class="page">
+
+  <!-- SIDEBAR  -->
+  <div class="sidebar">
+    <a href="seeker-dashboard.html" class="logo-text">✔ skillmatch</a>
+
+    <div class="menu">
+      <a href="seeker-dashboard.html"><span></span> Dashboard</a>
+      <a href="seeker-profile.html"><span></span> My profile</a>
+      <a href="resume.html"><span></span> Resume analyzer</a>
+      <a href="jobs.html" class="active"><span></span> Find jobs</a>
+      <a href="saved-jobs.html"><span></span> Saved jobs</a>
+      <a href="applications.html"><span>✓</span> Applications <span class="count">12</span></a>
+    </div>
+
+    <div class="user">
+      <div class="avatar" id="userAvatar">RU</div>
+      <div>
+        <b id="userName">Rahim Uddin</b><br>
+        <a href="#" onclick="logout()">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <a href="jobs.html" class="back">← Back to jobs</a>
+
+    <div class="row">
+
+      <!-- left side -->
+      <div class="column big">
+
+        <div class="box">
+          <div class="job-head">
+            <div class="company-logo bg-pink">BS</div>
+            <div>
+              <h1>Junior Web Developer</h1>
+              <p class="grey">Brainstation Ltd · Dhaka · Posted 2 days ago</p>
+            </div>
+          </div>
+
+          <div class="facts">
+            <div class="fact"><p>Salary</p><b>৳25k–35k</b></div>
+            <div class="fact"><p>Type</p><b>Internship</b></div>
+            <div class="fact"><p>Experience</p><b>0–1 year</b></div>
+            <div class="fact"><p>Deadline</p><b>15 Nov 2026</b></div>
+          </div>
+
+          <h3>About the role</h3>
+          <p>Build and maintain responsive pages for client websites, fix layout bugs,
+          and work with the backend team on simple database queries.</p>
+
+          <h3>Responsibilities</h3>
+          <ul>
+            <li>Turn designs into clean HTML, CSS and JavaScript</li>
+            <li>Use Git to manage code with the team</li>
+            <li>Write basic SQL queries for reports</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Skill comparison</h2>
+          <p class="grey">3 of 5 required skills · 3 ÷ 5 × 100 = <b>60%</b></p>
+
+          <div class="skill-row have">HTML <span>✓ You have it</span></div>
+          <div class="skill-row have">CSS <span>✓ You have it</span></div>
+          <div class="skill-row have">JavaScript <span>✓ You have it</span></div>
+          <div class="skill-row need">SQL <span>✕ Missing</span></div>
+          <div class="skill-row need">Git <span>✕ Missing</span></div>
+        </div>
+
+      </div>
+
+      <!-- right side -->
+      <div class="column small">
+
+        <div class="blue-box score-box">
+          <span class="small-title">OVERALL MATCH</span>
+          <div class="big-ring" style="background: conic-gradient(white 77.5%, rgba(255,255,255,0.2) 0)">
+            <span>77.5%</span>
+          </div>
+          <button class="btn btn-white full-width" id="applyBtn" onclick="applyJob()">Apply now</button>
+          <button class="btn btn-line full-width" id="saveBtn" onclick="saveJob()">☆ Save job</button>
+        </div>
+
+        <div class="box">
+          <h2>Score breakdown</h2>
+
+          <div class="score-item">
+            <div><span>Skills · 50%</span><b>40.0</b></div>
+            <div class="bar"><div class="fill" style="width: 80%"></div></div>
+          </div>
+          <div class="score-item">
+            <div><span>Experience · 20%</span><b>10.0</b></div>
+            <div class="bar"><div class="fill fill-orange" style="width: 50%"></div></div>
+          </div>
+          <div class="score-item">
+            <div><span>Education · 15%</span><b>15.0</b></div>
+            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+          </div>
+          <div class="score-item">
+            <div><span>Category · 10%</span><b>10.0</b></div>
+            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+          </div>
+          <div class="score-item">
+            <div><span>Location · 5%</span><b>5.0</b></div>
+            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+          </div>
+
+          <p class="note">This score shows fit with the job's needs. It is a guide, not a hiring decision.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="../../Logic/Job-Seeker.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="../Design/Common.css">
+</head>
+<body onload="showRole()">
+
+    <div class="topbar">
+        <h3>✔ skillmatch</h3>
+    </div>
+
+    <div class="form-box">
+
+        <span class="role" id="roleName">Job Seeker</span>
+        <h2>Login</h2>
+
+        <form onsubmit="return login()">
+            <fieldset>
+                <legend> Login Information </legend>
+                <table>
+                    <tr>
+                        <td> <label for="Username"> Username : </label> </td>
+                        <td>
+                            <input type="text" id="Username" placeholder="Enter Your Username">
+                            <p id="UsernameError"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> <label for="Password"> Password : </label> </td>
+                        <td>
+                            <input type="password" id="Password" placeholder="Enter Your Password">
+                            <p id="PasswordError"></p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <button type="submit" class="btn blue full">Login</button>
+        </form>
+
+        <!-- demo username and password (see showRole in Common.js) -->
+        <p class="link-text demo" id="demoText"></p>
+
+        <!-- link changes for each user type (see showRole in script.js) -->
+        <p class="link-text">
+            New here? <a href="Job-Seeker/Register.html" id="registerLink">Create an account</a>
+        </p>
+
+        <p class="link-text">
+            <a href="index.html">← Back</a>
+        </p>
+
+    </div>
+
+    <script src="../Logic/Common.js"></script>
+
+</body>
+</html>

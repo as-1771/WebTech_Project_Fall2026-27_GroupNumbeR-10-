@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Design/Admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../Logic/Admin.js" defer></script>
+    <title>SaaS Admin Control Dashboard</title>
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <p>Admin Dashboard</p>
+            </div>
+            <div class="sidebar-menu">
+                <a href="javascript:void(0)" class="nav-link active" onclick="showSection('overview', this)">Overview Hub</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="showSection('users', this)">Users Management</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="showSection('jobs', this)">Job Postings</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="showSection('reports', this)">Reports Hub</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="showSection('skills', this)">AI Taxonomy</a>
+                <a href="javascript:void(0)" class="nav-link" onclick="showSection('account', this)">Account Profile</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1> Job Recruitment Platform </h1>
+            </div>
+
+            <fieldset id="overview" class="tab-content active-section">
+                <legend> Platform Metrics & AI Performance </legend>
+                <table>
+                    <tr>
+                        <td width="25%">
+                            <div class="card-box" style="border-top: 4px solid #3b82f6;">
+                                Total Registered Users<br><h2>1,240</h2>
+                                <small style="color: #10b981;">↑ +14.2% from last month</small>
+                            </div>
+                        </td>
+                        <td width="25%">
+                            <div class="card-box" style="border-top: 4px solid #10b981;">
+                                Active Job Postings<br><h2>385</h2>
+                                <small style="color: #10b981;">↑ +8.5% new openings</small>
+                            </div>
+                        </td>
+                        <td width="25%">
+                            <div class="card-box" style="border-top: 4px solid #ef4444;">
+                                Unresolved Reports<br><h2 style="color:#ef4444;">12</h2>
+                                <small style="color: #ef4444;">↓ 2 urgent flags</small>
+                            </div>
+                        </td>
+                        <td width="25%">
+                            <div class="card-box" style="border-top: 4px solid #8b5cf6;">
+                                AI Match Score Rate<br><h2 style="color:#8b5cf6;">94.2%</h2>
+                                <small style="color: #8b5cf6;">Optimal Accuracy</small>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br>
+                <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; margin-top: 10px;">
+                    <h3 style="margin-top: 0; color: #1e3a8a; font-size: 16px;">Platform Monthly Growth Analytics (2026)</h3>
+                    <div style="width: 100%; height: 300px;">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset id="users" class="tab-content" style="display: none;">
+                <legend> User Accounts Control </legend>
+                
+                <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="roleFilter" style="font-weight: bold; color: #1e3a8a;">Filter by Role:</label>
+                        <select id="roleFilter" onchange="filterUserTable()" style="width: 220px; padding: 6px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                            <option value="All">All Roles</option>
+                            <option value="Job Seeker">Job Seeker</option>
+                            <option value="Employer">Employer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="button" class="btn-action-small" onclick="toggleAddUserForm()" style="background-color: #2563eb; padding: 8px 14px;">+ Add Employer</button>
+                    </div>
+                </div>
+
+                <div id="addUserBox" style="display: none; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; margin-bottom: 20px;">
+                    <h3 style="margin-top: 0; color: #1e3a8a; font-size: 16px;">Add New Employer Account</h3>
+                    <form id="newEmployerForm">
+                      <table>
+                        <tr>
+                          <td><label for="newCompName">Company Name:</label></td>
+                          <td>
+                              <input type="text" id="newCompName" placeholder="e.g. Apex Tech Ltd">
+                              <p id="NewCompError" style="color: red; font-size: 12px; margin: 2px 0 0 0;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="newEmail">Email Address:</label></td>
+                          <td>
+                              <input type="email" id="newEmail" placeholder="hr@apextech.com">
+                              <p id="NewEmailError" style="color: red; font-size: 12px; margin: 2px 0 0 0;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="newPhone">Phone Number:</label></td>
+                          <td>
+                              <input type="text" id="newPhone" placeholder="01811223344">
+                              <p id="NewPhoneError" style="color: red; font-size: 12px; margin: 2px 0 0 0;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="newUsername">Username:</label></td>
+                          <td>
+                              <input type="text" id="newUsername" placeholder="apex_hr">
+                              <p id="NewUserError" style="color: red; font-size: 12px; margin: 2px 0 0 0;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label for="newPassword">Password:</label></td>
+                          <td>
+                              <input type="password" id="newPassword" placeholder="Enter password">
+                              <p id="NewPassError" style="color: red; font-size: 12px; margin: 2px 0 0 0;"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" style="text-align: right; padding-top: 10px;">
+                            <button type="submit" class="btn-action-small" style="background-color: #10b981;">Save Employer</button>
+                            <button type="button" class="btn-action-small btn-danger" onclick="toggleAddUserForm()">Cancel</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                </div>
+
+                <table class="data-table" id="userTable">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Account Role</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor: pointer;" onclick="showUserDetails('USR-101')" data-role="Job Seeker">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">USR-101</a></td>
+                            <td><strong>Shaharia Rahman Tanim</strong></td>
+                            <td>Job Seeker</td>
+                            <td>tanim@example.com</td>
+                            <td><span class="badge-active">Active</span></td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('User Account Suspended')">Suspend</button></td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="showUserDetails('USR-102')" data-role="Employer">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">USR-102</a></td>
+                            <td><strong>TechCorp Solutions</strong></td>
+                            <td>Employer</td>
+                            <td>hr@techcorp.com</td>
+                            <td><span class="badge-pending">Pending</span></td>
+                            <td><button class="btn-action-small" onclick="event.stopPropagation(); alert('Employer Account Approved')">Approve</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <div id="userDetailsBox" style="display: none; background-color: #f8fafc; border: 2px dashed #3b82f6; border-radius: 8px; padding: 15px; margin-top: 10px;">
+                    <h3 id="detailTitle" style="margin-top: 0; color: #1e3a8a; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">User Profile Details</h3>
+                    <div id="detailContent"></div>
+                </div>
+            </fieldset>
+
+            <fieldset id="jobs" class="tab-content" style="display: none;">
+                <legend> Job Offer Moderation </legend>
+                
+                <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <label for="jobTypeFilter" style="font-weight: bold; color: #1e3a8a;">Filter by Job Type:</label>
+                    <select id="jobTypeFilter" onchange="filterJobTable()" style="width: 220px; padding: 6px 10px; border-radius: 6px; border: 1px solid #cbd5e1;">
+                        <option value="All">All Types</option>
+                        <option value="Full-Time Job">Full-Time Job</option>
+                        <option value="Part-Time Job">Part-Time Job</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+
+                <table class="data-table" id="jobTable">
+                    <thead>
+                        <tr>
+                            <th>Job ID</th>
+                            <th>Job Title</th>
+                            <th>Job Type</th>
+                            <th>Vacancy</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="cursor: pointer;" onclick="showJobDetails('JOB-501')" data-type="Full-Time Job">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">JOB-501</a></td>
+                            <td><strong>C++ OpenGL Graphics Engineer</strong></td>
+                            <td>Full-Time Job</td>
+                            <td>2</td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('Job Deleted')">Remove</button></td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="showJobDetails('JOB-502')" data-type="Full-Time Job">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">JOB-502</a></td>
+                            <td><strong>Computer Vision & AI Specialist</strong></td>
+                            <td>Full-Time Job</td>
+                            <td>1</td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('Job Flagged as Spam')">Flag Spam</button></td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="showJobDetails('JOB-503')" data-type="Internship">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">JOB-503</a></td>
+                            <td><strong>Python Data Science Intern</strong></td>
+                            <td>Internship</td>
+                            <td>4</td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('Job Deleted')">Remove</button></td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="showJobDetails('JOB-504')" data-type="Part-Time Job">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">JOB-504</a></td>
+                            <td><strong>Frontend Web Developer</strong></td>
+                            <td>Part-Time Job</td>
+                            <td>2</td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('Job Deleted')">Remove</button></td>
+                        </tr>
+                        <tr style="cursor: pointer;" onclick="showJobDetails('JOB-505')" data-type="Internship">
+                            <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">JOB-505</a></td>
+                            <td><strong>Game UI/UX Design Intern</strong></td>
+                            <td>Internship</td>
+                            <td>3</td>
+                            <td><button class="btn-action-small btn-danger" onclick="event.stopPropagation(); alert('Job Deleted')">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <div id="jobDetailsBox" style="display: none; background-color: #f8fafc; border: 2px dashed #10b981; border-radius: 8px; padding: 15px; margin-top: 10px;">
+                    <h3 id="jobDetailTitle" style="margin-top: 0; color: #065f46; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Job Description & Details</h3>
+                    <div id="jobDetailContent"></div>
+                </div>
+            </fieldset>
+
+            <fieldset id="reports" class="tab-content" style="display: none;">
+                <legend> User Reports & Safety Flags </legend>
+                <table class="data-table">
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Target Entity</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Resolution Action</th>
+                    </tr>
+                    <tr style="cursor: pointer;" onclick="showReportDetails('REP-001')">
+                        <td><a href="javascript:void(0)" style="color: #2563eb; font-weight: bold;">REP-001</a></td>
+                        <td><strong>Job Post #JOB-502</strong></td>
+                        <td>Inaccurate Job Requirements Offered</td>
+                        <td><span class="badge-pending">Open Report</span></td>
+                        <td><button class="btn-action-small" onclick="event.stopPropagation(); alert('Report Marked Resolved')">Resolve Issue</button></td>
+                    </tr>
+                </table>
+
+                <br>
+                <div id="reportDetailsBox" style="display: none; background-color: #f8fafc; border: 2px dashed #ef4444; border-radius: 8px; padding: 15px; margin-top: 10px;">
+                    <h3 id="reportDetailTitle" style="margin-top: 0; color: #991b1b; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px;">Report Investigation Details</h3>
+                    <div id="reportDetailContent"></div>
+                </div>
+            </fieldset>
+
+            <fieldset id="skills" class="tab-content" style="display: none;">
+                <legend> AI Skill Matching Tag Engine </legend>
+                <form id="skillForm">
+                    <table>
+                        <tr>
+                            <td><label for="SkillName">Add Skill Category Tag:</label></td>
+                            <td>
+                                <input type="text" id="SkillName" name="SkillName" placeholder="e.g. C++, SFML, OpenCV, Python">
+                                <p id="SkillError"></p>
+                            </td>
+                            <td width="20%"><input type="submit" class="btn-action-small" value="+ Add Skill Tag"></td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+
+            <fieldset id="account" class="tab-content" style="display: none;">
+                <legend> Admin Account Profile & Settings </legend>
+                <form id="profileForm">
+                    <table>
+                        <tr>
+                            <td><label for="profileEmail">Email Address:</label></td>
+                            <td>
+                                <input type="email" id="profileEmail" name="profileEmail" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="profilePhone">Phone Number:</label></td>
+                            <td>
+                                <input type="text" id="profilePhone" name="profilePhone" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="profileUsername">Username:</label></td>
+                            <td>
+                                <input type="text" id="profileUsername" name="profileUsername" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="profilePassword">Password:</label></td>
+                            <td>
+                                <input type="password" id="profilePassword" name="profilePassword" disabled>
+                                <div style="margin-top: 5px;">
+                                    <input type="checkbox" id="toggleProfilePass" onclick="togglePasswordVisibility('profilePassword')" style="margin-left: 0;"> 
+                                    <label for="toggleProfilePass">Show Password</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center; padding-top: 15px;">
+                                <button type="button" class="btn-action-small" id="editProfileBtn" onclick="enableProfileEdit()">Edit Profile</button>
+                                <button type="submit" class="btn-action-small" id="saveProfileBtn" style="display: none; background-color: #10b981;">Save Changes</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+
+        </div>
+    </div>
+</body>
+</html>
