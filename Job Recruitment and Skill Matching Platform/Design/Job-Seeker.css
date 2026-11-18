@@ -1,12 +1,4 @@
-/* =====================================================
-   SkillMatch - Job Seeker pages
-   Main colours used:
-   dark navy  #0F172A   (sidebar, dark boxes)
-   blue       #3B5BDB   (buttons, highlights)
-   light grey #F1F3F9   (page background)
-   ===================================================== */
-
-
+   
 /* ---------- 1. Basic setup ---------- */
 
 * {
@@ -503,7 +495,6 @@ textarea {
   flex: 1;
 }
 
-/* round match score (colour set in HTML with conic-gradient) */
 .ring {
   width: 54px;
   height: 54px;
